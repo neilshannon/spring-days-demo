@@ -57,14 +57,17 @@ Cloud configuration is provided by Spring Cloud Connectors.
 
 To run the app locally, you must have a running instance of MongoDB at localhost.
 
-For testing, we use an in-memory database.
+For testing, we also use  MongoDB at localhost.
 
 
 **To Run**
-`./gradlew bootRun`
+
+`$ ./gradlew bootRun` or `C:\>gradlew.bat bootRun`
 
 **To Test**
-`./gradlew test`
+
+`$ ./gradlew test` or `C:\>gradlew.bat test`
 
 **To Package for Deployment**
-`./gradlew build`
+
+`$ ./gradlew build` or `C:\>gradlew.bat build`
