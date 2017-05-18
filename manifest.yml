@@ -1,0 +1,7 @@
+---
+applications:
+- name: spring-days-demo
+  buildpack: java_buildpack
+  path: build/libs/spring-days-demo-0.1.0-SNAPSHOT.jar
+  services:
+    - springdays
