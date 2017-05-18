@@ -37,6 +37,16 @@ dependencies {
 	testCompile('com.jayway.jsonpath:json-path:2.2.0')
 }
 
+test {
+	reports {
+		junitXml.enabled = false
+		html.enabled = true
+	}
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
+
 bootRun {
 	//this configuration is to allow Spring Boot to run locally connecting to MongoDB at localhost
 	systemProperties "spring.cloud.appId": "springdays", "spring.cloud.springdays": "mongodb://localhost/springdays"
