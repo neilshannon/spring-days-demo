@@ -39,7 +39,7 @@ dependencies {
 
 test {
 	reports {
-		junitXml.enabled = false
+		junitXml.enabled = true
 		html.enabled = true
 	}
 	testLogging {
