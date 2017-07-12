@@ -51,7 +51,7 @@ Java(TM) SE Runtime Environment (build 1.8.0_112-b16)
 Java HotSpot(TM) 64-Bit Server VM (build 25.112-b16, mixed mode)
 ```
 
-## Java ##
+## Project Information ##
 This project runs on Spring Boot and uses Spring Data MongoDB and Spring REST.  
 Cloud configuration is provided by Spring Cloud Connectors.  
 
