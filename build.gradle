@@ -14,6 +14,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
+//noinspection GroovyAssignabilityCheck
 jar {
 	baseName = 'spring-days-demo'
 	version = '0.1.0-SNAPSHOT'
@@ -37,6 +38,7 @@ dependencies {
 	testCompile('com.jayway.jsonpath:json-path:2.2.0')
 }
 
+//noinspection GroovyAssignabilityCheck
 test {
 	reports {
 		junitXml.enabled = true
@@ -45,10 +47,5 @@ test {
 	testLogging {
 		events "passed", "skipped", "failed"
 	}
-}
-
-bootRun {
-	//this configuration is to allow Spring Boot to run locally connecting to MongoDB at localhost
-	systemProperties "spring.cloud.appId": "springdays", "spring.cloud.springdays": "mongodb://localhost/springdays"
 }
 
