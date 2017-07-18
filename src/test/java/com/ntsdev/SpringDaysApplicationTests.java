@@ -59,8 +59,10 @@ public class SpringDaysApplicationTests {
 		mockMvc.perform(get("/people/search/findByFirstName?name=Neil")).andExpect(result -> {
 			String json = result.getResponse().getContentAsString();
 			JSONArray neil = JsonPath.read(json, "$..people[?(@.firstName == 'Neil')]");
+            String firstName = JsonPath.read(json, "$._embedded.people[0].firstName");
 			String lastName = JsonPath.read(json, "$._embedded.people[0].lastName");
 			assertThat(neil).isNotEmpty();
+			assertThat(firstName).isEqualTo("Neil");
 			assertThat(lastName).isEqualTo("Shannon");
 		});
 	}
@@ -71,6 +73,17 @@ public class SpringDaysApplicationTests {
 			String json = result.getResponse().getContentAsString();
 			JSONArray people = JsonPath.read(json, "$..people[*]"); //find all people
 			assertThat(people).isEmpty();
+		});
+	}
+
+	@Test
+	public void testPersonIsFoundByLastName() throws Exception {
+		mockMvc.perform(get("/people/search/findByLastName?name=Shannon")).andExpect(result -> {
+			String json = result.getResponse().getContentAsString();
+			JSONArray neil = JsonPath.read(json, "$..people[?(@.lastName == 'Shannon')]");
+			String lastName = JsonPath.read(json, "$._embedded.people[0].lastName");
+			assertThat(neil).isNotEmpty();
+			assertThat(lastName).isEqualTo("Shannon");
 		});
 	}
 
